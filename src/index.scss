@@ -1,0 +1,10 @@
+$primary: #d1d8a2;
+$secondary: #4c5363;
+
+$light : $primary;
+$dark: $secondary;
+
+$body-bg: $primary;
+$body-color:$secondary;
+
+@import '~bootstrap/scss/bootstrap.scss';

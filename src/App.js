@@ -1,25 +1,41 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
-import './App.css';
+import NavbarComp from './components/NavbarComp';
+import Editor from './components/Editor';
+import Previewer from './components/Previewer';
 
 class App extends Component {
+  constructor(props){
+    super(props);
+    this.state = {
+      markdown:''
+    }
+    this.changeMark = this.changeMark.bind(this);
+  }
+
+  changeMark(ev){
+    if(ev.target){
+      this.setState(({ markdown : ev.target.value}));
+    }else {
+      this.setState(({ markdown : ev }));
+    }
+    console.log(this.state.markdown);
+  }
+
   render() {
     return (
       <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <p>
-            Edit <code>src/App.js</code> and save to reload.
-          </p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-        </header>
+        <NavbarComp />
+        <div className="container-fluid">
+          <div className="row align-items-center justify-content-center mt-5 mb-5">
+            <div className="col-xs-12 col-md-7">
+              <Editor text={this.state.markdown} handler={this.changeMark} />
+            </div>
+            <div className="col-xs-12 col-md-10 mt-5">
+              <Previewer mark={this.state.markdown} />
+            </div>
+          </div>  
+        </div>
+        
       </div>
     );
   }
