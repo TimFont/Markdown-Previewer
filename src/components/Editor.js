@@ -71,7 +71,7 @@ And here. | Okay. | I think we get it.
             <div className="card">
                 <h5 className="card-header">Editor</h5>
                 <div className="card-body">
-                    <textarea onChange={this.props.handler} className="form-control" rows="3" value={this.props.text} style={{ height: '50vh' }}></textarea>
+                    <textarea id="editor" onChange={this.props.handler} className="form-control" rows="3" value={this.props.text} style={{ height: '50vh' }}></textarea>
                 </div>
             </div>
         );
